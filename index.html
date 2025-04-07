@@ -5,109 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VLTV - IPTV</title>
   <link href="style.css" rel="stylesheet" />
-  <style>
-    body {
-      background-color: #004aad;
-      color: white;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 20px;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-    }
-    .plano {
-      background: #003a8c;
-      padding: 15px;
-      margin: 10px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .botao {
-      display: inline-block;
-      background-color: #00ffae;
-      color: #000;
-      padding: 12px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      margin-top: 15px;
-      font-weight: bold;
-    }
-    .pix-area {
-      background-color: #003a8c;
-      padding: 15px;
-      border-radius: 10px;
-      margin-top: 20px;
-    }
-    .pix-chave {
-      background: white;
-      color: #000;
-      padding: 10px;
-      border-radius: 5px;
-      word-break: break-all;
-    }
-    .copiar-btn {
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #00ffae;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    img.logo {
-      max-width: 200px;
-      margin-bottom: 20px;
-    }
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 10;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.8);
-    }
-    .modal-content {
-      margin: 10% auto;
-      max-width: 90%;
-    }
-    .modal-content img {
-      width: 100%;
-      border-radius: 10px;
-    }
-    .close {
-      color: white;
-      float: right;
-      font-size: 28px;
-      margin-right: 20px;
-      cursor: pointer;
-    }
-    footer {
-      margin-top: 30px;
-      font-size: 14px;
-    }
-    footer a {
-      color: #00ffae;
-      text-decoration: none;
-    }
-    .avaliacoes {
-      margin-top: 30px;
-    }
-    .estrelas input {
-      display: none;
-    }
-    .estrelas label {
-      color: gray;
-      font-size: 30px;
-      cursor: pointer;
-    }
-    .estrelas input:checked ~ label {
-      color: gold;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
@@ -118,9 +15,9 @@
        Teste grátis disponível, é só chamar no WhatsApp!</p>
 
     <div class="planos">
-      <div class="plano" onclick="abrirModal()"><h2>Plano 1 Mês</h2><p>R$ 29,90</p></div>
-      <div class="plano" onclick="abrirModal()"><h2>Plano 3 Meses</h2><p>R$ 79,90</p></div>
-      <div class="plano" onclick="abrirModal()"><h2>Plano 6 Meses</h2><p>R$ 139,90</p></div>
+      <div class="plano" onclick="abrirFlyer()"><h2>Plano 1 Mês</h2><p>R$ 29,90</p></div>
+      <div class="plano" onclick="abrirFlyer()"><h2>Plano 3 Meses</h2><p>R$ 79,90</p></div>
+      <div class="plano" onclick="abrirFlyer()"><h2>Plano 6 Meses</h2><p>R$ 139,90</p></div>
     </div>
 
     <p class="pagamento">Pagamento via <strong>Pix</strong></p>
@@ -134,34 +31,14 @@
     <p>Ficou com dúvida ou quer testar? Fale conosco!</p>
     <a href="https://wa.me/5519984494895" target="_blank" class="botao">Falar no WhatsApp</a>
 
-    <!-- Modal Flyer -->
-    <div id="flyerModal" class="modal">
-      <span class="close" onclick="fecharModal()">&times;</span>
-      <div class="modal-content">
-        <img src="IMG-20250404-WA0076.jpg" alt="Flyer dos Planos">
-      </div>
-    </div>
-
-    <!-- Avaliações -->
     <div class="avaliacoes">
-      <h2>Avalie nosso serviço</h2>
-      <form>
-        <div class="estrelas">
-          <input type="radio" name="estrela" id="estrela5"><label for="estrela5">&#9733;</label>
-          <input type="radio" name="estrela" id="estrela4"><label for="estrela4">&#9733;</label>
-          <input type="radio" name="estrela" id="estrela3"><label for="estrela3">&#9733;</label>
-          <input type="radio" name="estrela" id="estrela2"><label for="estrela2">&#9733;</label>
-          <input type="radio" name="estrela" id="estrela1"><label for="estrela1">&#9733;</label>
-        </div>
-        <br>
-        <textarea rows="4" cols="50" placeholder="Deixe seu comentário aqui..." style="border-radius: 5px; padding: 10px;"></textarea>
-        <br><br>
-        <button class="copiar-btn" type="submit">Enviar Avaliação</button>
-      </form>
+      <h2>Deixe sua avaliação:</h2>
+      <div class="estrelas">★★★★★</div>
+      <p>Sua opinião é muito importante!</p>
     </div>
 
     <footer>
-      <p>Siga a gente no Instagram: <a href="https://instagram.com/vltv.01" target="_blank">@vltv.01</a></p>
+      <p>Siga no Instagram: <a href="https://instagram.com/vltv.01" target="_blank">@vltv.01</a></p>
     </footer>
   </div>
 
@@ -172,19 +49,8 @@
       alert("Chave Pix copiada com sucesso!");
     }
 
-    function abrirModal() {
-      document.getElementById("flyerModal").style.display = "block";
-    }
-
-    function fecharModal() {
-      document.getElementById("flyerModal").style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      const modal = document.getElementById("flyerModal");
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
+    function abrirFlyer() {
+      window.open("flyer.jpg", "_blank");
     }
   </script>
 </body>
